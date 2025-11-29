@@ -4,6 +4,7 @@ import heroImage from "../assets/analytics-reports.jpg";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -20,60 +21,70 @@ const Hero = () => {
         <div className="flex items-center justify-between">
           <div
             className={`transform transition-all duration-1000 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-20 opacity-0"
+              isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
             }`}
           >
-            <img
-              src="/Roato.jpeg"
-              alt="RESTO Premium"
-              className="h-16 w-16 object-contain"
-            />
+            <img src="/Roato.jpeg" alt="RESTO Premium" className="h-16 w-16 object-contain" />
           </div>
+
           <div
-            className={`flex gap-8 items-center transform transition-all duration-1000 delay-300 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-20 opacity-0"
+            className={`lg:flex hidden gap-8 items-center transform transition-all duration-1000 delay-300 ${
+              isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
             }`}
           >
-            <a
-              href="#features"
-              className="text-gray-300 hover:text-red-600 transition-colors duration-300"
-            >
-              الميزات
-            </a>
-            <a
-              href="#benefits"
-              className="text-gray-300 hover:text-red-600 transition-colors duration-300"
-            >
-              الفوائد
-            </a>
-            <a
-              href="#faq"
-              className="text-gray-300 hover:text-red-600 transition-colors duration-300"
-            >
-              الأسئلة الشائعة
-            </a>
+            <a href="#features" className="text-gray-300 hover:text-red-600 transition-colors duration-300">الميزات</a>
+            <a href="#benefits" className="text-gray-300 hover:text-red-600 transition-colors duration-300">الفوائد</a>
+            <a href="#faq" className="text-gray-300 hover:text-red-600 transition-colors duration-300">الأسئلة الشائعة</a>
             <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-600/50">
               ابدأ الآن
             </button>
           </div>
+
+          <button
+            className="lg:hidden text-white"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d={
+                  menuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
+              />
+            </svg>
+          </button>
         </div>
+
+        {menuOpen && (
+          <div className="lg:hidden bg-black/80 backdrop-blur-md p-6 space-y-4 text-right mt-4 rounded-xl">
+            <a href="#features" className="block text-gray-300 hover:text-red-600 transition">الميزات</a>
+            <a href="#benefits" className="block text-gray-300 hover:text-red-600 transition">الفوائد</a>
+            <a href="#faq" className="block text-gray-300 hover:text-red-600 transition">الأسئلة الشائعة</a>
+            <button className="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition">
+              ابدأ الآن
+            </button>
+          </div>
+        )}
       </nav>
 
       <div className="relative z-10 container mx-auto px-6 pt-20 pb-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-right space-y-8">
             <div
-              className={`transform transition-all duration-1000  delay-500 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-20 opacity-0"
+              className={`transform transition-all duration-1000 delay-500 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
               }`}
             >
-              <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-[3.3rem] md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="block text-white mb-2">أدِر مطعمك</span>
                 <span className="block text-red-600">بذكاء واحترافية</span>
               </h1>
@@ -81,30 +92,22 @@ const Hero = () => {
 
             <div
               className={`transform transition-all duration-1000 delay-700 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-20 opacity-0"
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
               }`}
             >
               <p className="text-xl text-gray-300 leading-relaxed">
-                نظام RESTO المتكامل يمنحك السيطرة الكاملة على جميع عمليات مطعمك
-                - من إدارة الطلبات إلى التقارير التفصيلية، كل ما تحتاجه في مكان
-                واحد
+                نظام RESTO المتكامل يمنحك السيطرة الكاملة على جميع عمليات مطعمك - من إدارة الطلبات إلى التقارير التفصيلية، كل ما تحتاجه في مكان واحد
               </p>
             </div>
 
             <div
-              className={`flex gap-4  justify-start transform transition-all duration-1000 delay-900 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-20 opacity-0"
+              className={`flex gap-4 justify-start transform transition-all duration-1000 delay-900 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
               }`}
             >
               <button className="group bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-red-600/50 hover:shadow-red-600/70">
                 جرّب مجاناً
-                <span className="inline-block group-hover:translate-x-[-5px] transition-transform duration-300">
-                  ←
-                </span>
+                <span className="inline-block group-hover:translate-x-[-5px] transition-transform duration-300">←</span>
               </button>
               <button className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105">
                 شاهد العرض التوضيحي
@@ -113,9 +116,7 @@ const Hero = () => {
 
             <div
               className={`flex gap-12 justify-start transform transition-all duration-1000 delay-1100 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-20 opacity-0"
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
               }`}
             >
               <div className="text-center">
