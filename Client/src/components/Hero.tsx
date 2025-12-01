@@ -120,7 +120,7 @@ const Hero = () => {
               }`}
             >
               <div className="text-center">
-                <div className="text-4xl font-bold text-red-600">500+</div>
+                <div className="text-4xl font-bold text-red-600">230+</div>
                 <div className="text-gray-400 mt-1">مطعم يثق بنا</div>
               </div>
               <div className="text-center">

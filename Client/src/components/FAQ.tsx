@@ -1,25 +1,29 @@
-import { useState } from 'react';
-import { Smartphone, Gift, Package, LineChart } from 'lucide-react';
+import { useState } from "react";
+import { Smartphone, Gift, Package, LineChart } from "lucide-react";
 
 const faqs = [
   {
-    question: 'هل يمكن استخدام RESTO على الموبايل؟',
-    answer: 'نعم، نظام RESTO متوافق بالكامل مع جميع الأجهزة المحمولة. يمكنك إدارة مطعمك من أي مكان وفي أي وقت عبر الهاتف الذكي أو الجهاز اللوحي مع واجهة مستخدم مُحسّنة للشاشات الصغيرة.',
+    question: "هل يمكن استخدام RESTO على الموبايل؟",
+    answer:
+      "نعم، نظام RESTO متوافق بالكامل مع جميع الأجهزة المحمولة. يمكنك إدارة مطعمك من أي مكان وفي أي وقت عبر الهاتف الذكي أو الجهاز اللوحي مع واجهة مستخدم مُحسّنة للشاشات الصغيرة.",
     icon: Smartphone,
   },
   {
-    question: 'هل هناك فترة تجريبية مجانية؟',
-    answer: 'بالتأكيد! نوفر فترة تجريبية مجانية لمدة 30 يوماً كاملة بدون الحاجة إلى بطاقة ائتمانية. جرّب جميع الميزات واكتشف كيف يمكن لـ RESTO أن يحوّل طريقة إدارة مطعمك.',
+    question: "هل هناك فترة تجريبية مجانية؟",
+    answer:
+      "بالتأكيد! نوفر فترة تجريبية مجانية . جرّب جميع الميزات واكتشف كيف يمكن لـ RESTO أن يحوّل طريقة إدارة مطعمك.",
     icon: Gift,
   },
   {
-    question: 'هل يدعم النظام إدارة المخازن والموردين؟',
-    answer: 'نعم تماماً! يتضمن RESTO نظام إدارة مخزون متكامل مع إمكانية تتبع المواد الأولية، إدارة العلاقات مع الموردين، إنشاء أوامر الشراء تلقائياً، وتنبيهات ذكية عند انخفاض المخزون.',
+    question: "هل يدعم النظام إدارة المخازن والموردين؟",
+    answer:
+      "نعم تماماً! يتضمن RESTO نظام إدارة مخزون متكامل مع إمكانية تتبع المواد الأولية، إدارة العلاقات مع الموردين، إنشاء أوامر الشراء تلقائياً، وتنبيهات ذكية عند انخفاض المخزون.",
     icon: Package,
   },
   {
-    question: 'هل يقدم النظام تقارير وتحليلات مفصلة؟',
-    answer: 'نعم، يوفر RESTO لوحة تحكم تحليلية شاملة مع تقارير مفصلة عن المبيعات، أداء الموظفين، تحليل الأطباق الأكثر ربحية، وتتبع المصروفات. كل البيانات التي تحتاجها لاتخاذ قرارات ذكية.',
+    question: "هل يقدم النظام تقارير وتحليلات مفصلة؟",
+    answer:
+      "نعم، يوفر RESTO لوحة تحكم تحليلية شاملة مع تقارير مفصلة عن المبيعات، أداء الموظفين، تحليل الأطباق الأكثر ربحية، وتتبع المصروفات. كل البيانات التي تحتاجها لاتخاذ قرارات ذكية.",
     icon: LineChart,
   },
 ];
@@ -58,29 +62,49 @@ const FAQ = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => setSelectedIndex(isSelected ? null : index)}
               >
-                <div className={`relative bg-gradient-to-br from-gray-900 to-black border border-red-600/20 rounded-2xl p-8 transition-all duration-500 ${
-                  isHovered || isSelected ? 'border-red-600/50 shadow-2xl shadow-red-600/20 scale-105' : ''
-                }`}>
+                <div
+                  className={`relative bg-gradient-to-br from-gray-900 to-black border border-red-600/20 rounded-2xl p-8 transition-all duration-500 ${
+                    isHovered || isSelected
+                      ? "border-red-600/50 shadow-2xl shadow-red-600/20 scale-105"
+                      : ""
+                  }`}
+                >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`p-3 rounded-xl transition-all duration-300 ${
-                      isHovered || isSelected ? 'bg-red-600' : 'bg-red-600/10'
-                    }`}>
-                      <Icon className={`w-6 h-6 transition-colors duration-300 ${
-                        isHovered || isSelected ? 'text-white' : 'text-red-600'
-                      }`} />
+                    <div
+                      className={`p-3 rounded-xl transition-all duration-300 ${
+                        isHovered || isSelected ? "bg-red-600" : "bg-red-600/10"
+                      }`}
+                    >
+                      <Icon
+                        className={`w-6 h-6 transition-colors duration-300 ${
+                          isHovered || isSelected
+                            ? "text-white"
+                            : "text-red-600"
+                        }`}
+                      />
                     </div>
                     <h3 className="text-xl font-bold text-white flex-1 leading-relaxed">
                       {faq.question}
                     </h3>
                   </div>
 
-                  <div className={`overflow-hidden transition-all duration-500 ${
-                    isHovered || isSelected ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className={`pt-4 border-t border-red-600/20 transition-all duration-500 ${
-                      isHovered || isSelected ? 'translate-y-0' : '-translate-y-4'
-                    }`}>
-                      <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ${
+                      isHovered || isSelected
+                        ? "max-h-96 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div
+                      className={`pt-4 border-t border-red-600/20 transition-all duration-500 ${
+                        isHovered || isSelected
+                          ? "translate-y-0"
+                          : "-translate-y-4"
+                      }`}
+                    >
+                      <p className="text-gray-300 leading-relaxed">
+                        {faq.answer}
+                      </p>
                     </div>
                   </div>
 
@@ -95,9 +119,14 @@ const FAQ = () => {
 
         <div className="text-center mt-16">
           <p className="text-gray-400 mb-6">لا تجد إجابة لسؤالك؟</p>
-          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-600/50">
+          <a
+            href="https://wa.me/970599346610"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-600/50"
+          >
             تواصل مع فريق الدعم
-          </button>
+          </a>
         </div>
       </div>
     </section>
