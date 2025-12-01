@@ -5,6 +5,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import img from '../assets/palcode.jpeg'
 
 const Footer = () => {
   return (
@@ -145,10 +146,21 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-
         <div className="border-t border-red-600/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-right">
             <p className="text-gray-400">© 2025 RESTO. جميع الحقوق محفوظة.</p>
+            <div className="flex items-center gap-2">
+              <img
+                src={img} 
+                alt="PalCode Logo"
+                className="w-8 h-8 object-contain rounded-lg"
+              />
+              <span className="text-gray-400">
+                Developed by{" "}
+                <span className="text-red-600 font-semibold">PalCode</span>
+              </span>
+            </div>
+
             <div className="flex gap-6">
               <a
                 href="#"
